@@ -1,29 +1,26 @@
-const express = require('express')
-const morgan = require('morgan')
-const path = require('path')
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
 
-const app = express()
-const PORT = process.env.PORT || 3000
-
-
-app.use(morgan('tiny'))
-
-
-app.use(express.static(path.join(__dirname, 'public')))
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.get('/typesetting', (req, res) => {
-    res.redirect('https://github.com/Michelyee132/TypeSettings')
-})
+    res.redirect('https://github.com/Michelyee132/TypeSettings');
+});
 
-app.get('/climate', (req,res) => {
-    res.redirect('https://github.com/Michelyee132/climate-crisis')
-})
+app.get('/climate', (req, res) => {
+    res.redirect('https://github.com/Michelyee132/climate-crisis');
+});
 
-app.get('/algo', (req,res) => {
-    res.redirect('https://github.com/Michelyee132/four-sorting-algorithms')
-})
+app.get('/algo', (req, res) => {
+    res.redirect('https://github.com/Michelyee132/four-sorting-algorithms');
+});
 
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
-})
+    console.log(`Server running on http://localhost:${PORT}`);
+});
