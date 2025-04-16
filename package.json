@@ -1,6 +1,5 @@
 {
-{
-  "name": "express-navbar-april-15-2025",
+  "name": "navbar",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
